@@ -156,7 +156,33 @@
     <li><a href="about.html">About</a></li>
     <li><a href="order.html" class="nav-cta">Get Started</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="services.html"  class="active">Services</a>
+  <a href="blog.html">Blog</a>
+  <a href="about.html">About</a>
+  <a href="order.html" class="drawer-cta">Get Started</a>
+</div>
+<script>
+function toggleMenu() {
+  var btn    = document.getElementById('hamburger');
+  var drawer = document.getElementById('navDrawer');
+  btn.classList.toggle('open');
+  drawer.classList.toggle('open');
+  document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+}
+document.querySelectorAll('.nav-drawer a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('navDrawer').classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+</script>
 
 <div class="page-hero">
   <div class="breadcrumb"><a href="index.html">Home</a> / <span>Services</span></div>
